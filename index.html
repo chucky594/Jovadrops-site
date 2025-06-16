@@ -65,6 +65,49 @@
       <strong>- Grace</strong>, Office Admin
     </blockquote>
   </section>
+  <section class="order-now">
+  <h2>Order Now</h2>
+  <form id="orderForm">
+    <label>First & Last Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Phone Number:</label>
+    <input type="tel" id="phone" required>
+
+    <label>Estate:</label>
+    <select id="estate" required>
+      <option value="">Select your estate</option>
+      <option>Police Sacco</option>
+      <option>Muigai</option>
+      <option>Safaricom 2</option>
+      <option>Safaricom 1</option>
+      <option>Royal Finesse</option>
+      <option>Chuna</option>
+      <option>Acacia</option>
+      <option>Riverine</option>
+      <option>Almond Grove</option>
+      <option>Kitengela Plains</option>
+      <option>Fountain View</option>
+      <option>Milimani</option>
+      <option>Boston</option>
+      <option>Global Village Park</option>
+      <option>Other</option>
+    </select>
+
+    <label>House Number (optional):</label>
+    <input type="text" id="house">
+
+    <label>Delivery Instructions:</label>
+    <textarea id="instructions" rows="3"></textarea>
+
+    <label>20L Bottles (Ksh 100 each):</label>
+    <input type="number" id="quantity" min="1" value="1" required>
+
+    <p>Total: <strong id="total">Ksh 100</strong></p>
+
+    <button type="submit">Send Order via WhatsApp</button>
+  </form>
+ </section>  
   <footer class="contact">
     <p>📞  Call\WhatsApp:<strong> 0748928369</strong></p>
     <p>📍 <strong>Lcoation: </strong> GMC Area, Police Sacco, Opposite Lake Energy, next to Rhino Mabati, Kitengela</p>
@@ -79,6 +122,43 @@
     </iframe>
     <a href="https://wordpress.org/plugins/whatsiplus-order-notification-for-woocommerce/" class="whatsapp" target="_blank">Order on Now</a>
   </footer>
+<script>
+  const form = document.getElementById('orderForm');
+  const quantityInput = document.getElementById('quantity');
+  const totalDisplay = document.getElementById('total');
+  const PRICE_PER_BOTTLE = 100;
+
+  quantityInput.addEventListener('input', () => {
+    const qty = parseInt(quantityInput.value) || 1;
+    totalDisplay.textContent = `Ksh ${qty * PRICE_PER_BOTTLE}`;
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const estate = document.getElementById('estate').value;
+    const house = document.getElementById('house').value.trim();
+    const instructions = document.getElementById('instructions').value.trim();
+    const quantity = parseInt(quantityInput.value) || 1;
+    const total = quantity * PRICE_PER_BOTTLE;
+
+    const message = `Hello Jovadrops 👋%0A
+New Order Details:%0A
+👤 Name: ${name}%0A
+📞 Phone: ${phone}%0A
+🏘️ Estate: ${estate}%0A
+🏠 House Number: ${house || 'N/A'}%0A
+📝 Instructions: ${instructions || 'None'}%0A
+💧 20L Bottles: ${quantity}%0A
+💰 Total: Ksh ${total}%0A
+Payment Method: Pay on Delivery`;
+
+    const whatsappLink = `https://wa.me/254748928369?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+  });
+</script>
 </body>
 </html>
 
