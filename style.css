@@ -27,8 +27,12 @@ body {
   align-items: center;
   margin-bottom: 1rem;
   padding: 10px 20px;
-  background-color: white;
+  background-color:  rgba(0, 150, 200, 0.9);
   position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .logo {
