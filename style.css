@@ -153,3 +153,14 @@ footer.contact {
   margin-top: 2rem;
   border-top: 1px solid #ccc;
 }
+@media (max-width: 600px) {
+  .logo {
+    max-width: 100px; /* smaller size for mobile */
+  }
+
+  .navbar {
+    flex-direction: column; /* stack logo and button */
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
