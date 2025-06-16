@@ -42,6 +42,11 @@ body {
   height: auto;
   display: block;
 }
+.logo img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+}
 .call-btn {
   background-color: #004aad;
   color: white;
