@@ -26,6 +26,8 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  padding: 10px 20px;
+  background-color: white;
 }
 
 .logo {
