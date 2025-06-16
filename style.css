@@ -38,16 +38,15 @@ body {
   height: auto;
   display: block;
 }
-
 .call-btn {
-  background-color: #003366;
-  color: #fff;
+  background-color: #004aad;
+  color: white;
+  padding: 10px 15px;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
 }
-
 .hero h1 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
